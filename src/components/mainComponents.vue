@@ -28,13 +28,13 @@ export default {
                         <div class="text-white fw-bold text-center p-2">Found 39 cards</div>
                     </div>
                     <div>
-                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
                             <div class="col" v-for="card in store.cards">
                                 <div class="card rounded-0">
                                     <img :src="card.card_images[0].image_url" class="card-img-top" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title">{{ card.name }}</h5>
-                                        <p class="card-text">{{ card.archetype }}</p>
+                                        <h6 class="card-title text-white text-center">{{ card.name }}</h6>
+                                        <p class="card-text text-center fw-bold">{{ card.archetype }}</p>
                                     </div>
                                 </div>
                             </div>
