@@ -22,15 +22,15 @@ export default {
                 <option value="0">Alien</option>
                 <option value="1">Monster</option>
             </select>
-            <div class="container bg-white p-4 mt-3">
+            <div class="container bg-white p-4 mt-3 shadow">
                 <div>
                     <div class="bg-dark">
                         <div class="text-white fw-bold text-center p-2">Found 39 cards</div>
                     </div>
                     <div>
-                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
-                            <div class="col" v-for="card in store.cards">
-                                <div class="card rounded-0">
+                        <div class="row">
+                            <div class=" col-xl-2 col-md-3 col-sm-6 col-12" v-for="card in store.cards">
+                                <div class="card rounded-0 shadow">
                                     <img :src="card.card_images[0].image_url" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h6 class="card-title text-white text-center">{{ card.name }}</h6>
