@@ -14,7 +14,7 @@ export default {
 
 <template>
     <select class="border-0 rounded-2 p-1 shadow" name="archetype" id="archetype" @change="$emit('searching')"
-        :v-model="this.store.nameArchetype">
+        :v-model="store.nameArchetype">
         <option placeholder="Seleziona un archetipo.." disabled>Seleziona un archetipo..</option>
         <option v-for="archetype in store.archetypeList" :value="archetype.archetype_name">{{ archetype.archetype_name
         }}

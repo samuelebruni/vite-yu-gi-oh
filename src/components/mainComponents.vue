@@ -15,9 +15,9 @@ export default {
     },
     methods: {
         searchingArchetype() {
-            const urlByArchetype = this.store.base_url + `&archetype=${this.store.nameArchetype}`
-            this.store.fetchData(urlByArchetype)
-            console.log(this.store.archetypeList, urlByArchetype);
+            const urlArchetype = this.store.base_url + `&archetype=${this.store.nameArchetype}`
+            this.store.fetchData(urlArchetype)
+            console.log(this.store.archetypeList, urlArchetype);
         }
     },
     created() {
