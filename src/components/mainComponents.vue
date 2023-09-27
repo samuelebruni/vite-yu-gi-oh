@@ -1,15 +1,28 @@
 <script>
 import { store } from '../store'
+import SearchArchetype from './SearchArchetype.vue';
 
 export default {
     name: 'MainComponents',
+    emit: ['searching'],
+    components: {
+        SearchArchetype
+    },
     data() {
         return {
             store
         }
     },
+    methods: {
+        searchingArchetype() {
+            const urlByArchetype = this.store.base_url + `&archetype=${this.store.nameArchetype}`
+            this.store.fetchData(urlByArchetype)
+            console.log(this.store.archetypeList, urlByArchetype);
+        }
+    },
     created() {
-        store.fetchData();
+        store.fetchData(this.store.base_url),
+            store.fetchArchetype(this.store.archetype_url)
     }
 
 }
@@ -18,10 +31,7 @@ export default {
 <template>
     <section id="app_main" class="py-3">
         <div class="container">
-            <select class="border-0 rounded-2 p-1 shadow">
-                <option value="0">Alien</option>
-                <option value="1">Monster</option>
-            </select>
+            <SearchArchetype @searching="searchingArchetype" />
             <div class="container bg-white p-4 mt-3 shadow">
                 <div>
                     <div class="bg-dark">
