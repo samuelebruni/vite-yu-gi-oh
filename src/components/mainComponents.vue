@@ -1,29 +1,30 @@
 <script>
 import { store } from '../store'
 import SearchArchetype from './SearchArchetype.vue';
+import CardItem from './CardItem.vue';
 
 export default {
     name: 'MainComponents',
-    emit: ['searching'],
     components: {
-        SearchArchetype
+        SearchArchetype,
+        CardItem
     },
     data() {
         return {
             store
         }
     },
-    methods: {
-        searchingArchetype() {
-            const urlArchetype = this.store.base_url + `&archetype=${this.store.nameArchetype}`
-            this.store.fetchData(urlArchetype)
-            console.log(this.store.archetypeList, urlArchetype);
-        }
-    },
     created() {
         store.fetchData(this.store.base_url),
             store.fetchArchetype(this.store.archetype_url)
-    }
+    },
+    methods: {
+        searchingArchetype() {
+            const urlArchetype = this.store.base_url + `&archetype=${this.store.nameArchetype}`;
+            this.store.fetchData(urlArchetype);
+            console.log(this.store.archetypeList, urlArchetype);
+        }
+    },
 
 }
 </script>
@@ -39,15 +40,7 @@ export default {
                     </div>
                     <div>
                         <div class="row">
-                            <div class=" col-xl-2 col-md-3 col-sm-6 col-12" v-for="card in store.cards">
-                                <div class="card rounded-0 shadow">
-                                    <img :src="card.card_images[0].image_url" class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h6 class="card-title text-white text-center">{{ card.name }}</h6>
-                                        <p class="card-text text-center fw-bold">{{ card.archetype }}</p>
-                                    </div>
-                                </div>
-                            </div>
+                            <CardItem :card="card" v-for="card in store.cards" />
                         </div>
                     </div>
                 </div>
